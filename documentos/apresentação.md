@@ -1,8 +1,11 @@
-# Apresentação do projeto: classificação de diabetes
+# Relatório: classificação de diabetes
 
 ## 1. Contexto e objetivo
 
 Este projeto teve como objetivo desenvolver um sistema inteligente capaz de classificar pacientes em duas categorias: com diabetes ou sem diabetes, a partir de características clínicas e demográficas.
+
+Foi usado dataset: [Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database?resource=download)
+
 
 A proposta foi construir um pipeline completo de machine learning, iniciando no tratamento dos dados, passando pelo treinamento de modelos e finalizando com a comparação de desempenho entre diferentes abordagens.
 
@@ -195,19 +198,19 @@ As matrizes de confusão ajudam a visualizar melhor os erros cometidos por cada 
 
 ### Árvore de decisão (depth = 3)
 
-![Matriz de confusão - decision_tree_depth_3](decision_tree_depth_3_confusion_matrix.png)
+![Matriz de confusão - decision_tree_depth_3](../models/trained/decision_tree_depth_3_confusion_matrix.png)
 
 ### Árvore de decisão (depth = 5)
 
-![Matriz de confusão - decision_tree_depth_5](decision_tree_depth_5_confusion_matrix.png)
+![Matriz de confusão - decision_tree_depth_5](../models/trained/decision_tree_depth_5_confusion_matrix.png)
 
 ### Árvore de decisão (depth = 7)
 
-![Matriz de confusão - decision_tree_depth_7](decision_tree_depth_7_confusion_matrix.png)
+![Matriz de confusão - decision_tree_depth_7](../models/trained/decision_tree_depth_7_confusion_matrix.png)
 
 ### Naive Bayes Gaussiano
 
-![Matriz de confusão - naive_bayes_gaussian](naive_bayes_gaussian_confusion_matrix.png)
+![Matriz de confusão - naive_bayes_gaussian](../models/trained/naive_bayes_gaussian_confusion_matrix.png)
 
 Essas matrizes mostram que o modelo de profundidade 5 conseguiu um melhor equilíbrio entre acertos e erros, especialmente na identificação dos casos positivos.
 
