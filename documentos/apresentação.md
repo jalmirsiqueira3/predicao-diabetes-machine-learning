@@ -14,17 +14,17 @@ O foco principal foi selecionar o modelo mais adequado para este cenário, consi
 
 O conjunto de dados utilizado é o clássico dataset de diabetes, contendo 768 registros e 9 colunas:
 
-- Pregnancies
-- Glucose
-- BloodPressure
-- SkinThickness
-- Insulin
-- BMI
-- DiabetesPedigreeFunction
-- Age
-- Outcome
+- Número de gestações
+- Glicose
+- Pressão arterial
+- Espessura da pele
+- Insulina
+- IMC
+- Função de pedigree da diabetes
+- Idade
+- Resultado
 
-A variável alvo é Outcome, que indica:
+A variável alvo é Resultado, que indica:
 
 - 0: sem diabetes
 - 1: com diabetes
@@ -111,7 +111,7 @@ Limitações:
 
 ## 5. Estrutura das árvores de decisão
 
-As árvores foram treinadas após o pré-processamento, com as variáveis já padronizadas. Por isso, as divisões aparecem em termos de features transformadas, como f1, f5, f7, f4, f2 e f6, em vez dos nomes originais das colunas.
+As árvores foram treinadas após o pré-processamento, com as variáveis já padronizadas. Para facilitar a interpretação, a estrutura abaixo é apresentada em termos dos nomes das colunas em português, como Glicose, IMC, Idade, Pressão arterial e demais características clínicas.
 
 A melhor forma de visualizar a lógica dessas árvores é pensar em cada nó como uma pergunta. A partir da resposta, o modelo segue para outro ramo e, no final, decide se o paciente é classificado como sem diabetes ou com diabetes.
 
@@ -121,10 +121,12 @@ Essa é a árvore mais simples. Ela faz poucas perguntas antes de classificar o 
 
 Estrutura em forma de perguntas:
 
-1. A característica f1 está abaixo de um certo limite?
-2. Se sim, a característica f5 ajuda a decidir entre os dois grupos.
-3. Em seguida, f1 e f7 são usados para reforçar a decisão.
-4. Se não, a árvore segue por outro caminho e usa f5 e f4 para concluir a classificação.
+1. A característica Glicose está abaixo de um certo limite?
+2. Se sim, o IMC ajuda a decidir entre os dois grupos.
+3. Em seguida, Glicose e Idade são usados para reforçar a decisão.
+4. Se não, a árvore segue por outro caminho e usa IMC e Insulina para concluir a classificação.
+
+![Estrutura da árvore de decisão com profundidade 3](arvore_depth_3.png)
 
 Essa estrutura é mais direta, mas também menos detalhada. Por isso, ela consegue captar menos nuances do problema.
 
@@ -134,10 +136,12 @@ Essa foi a árvore com melhor equilíbrio entre simplicidade e capacidade de sep
 
 Estrutura em forma de perguntas:
 
-1. A característica f1 é o ponto inicial de decisão mais importante.
-2. Em seguida, a árvore pergunta se f5 está em um intervalo específico.
-3. A partir daí, novas perguntas são feitas com f1, f2, f4, f5 e f7.
+1. A característica Glicose é o ponto inicial de decisão mais importante.
+2. Em seguida, a árvore pergunta se o IMC está em um intervalo específico.
+3. A partir daí, novas perguntas são feitas com Glicose, Pressão arterial, Insulina, IMC e Idade.
 4. O modelo vai refinando a decisão em vários níveis, mas sem se tornar excessivamente complexo.
+
+![Estrutura da árvore de decisão com profundidade 5](arvore_depth_5.png)
 
 Essa árvore é mais rica do que a de profundidade 3, pois faz mais perguntas antes de decidir. Isso permite capturar melhor os padrões do dataset e, por isso, apresentou melhor desempenho geral.
 
@@ -147,10 +151,12 @@ Essa é a árvore mais detalhada e mais profunda. Ela faz mais perguntas e separ
 
 Estrutura em forma de perguntas:
 
-1. A árvore começa, como nas outras, avaliando f1.
-2. Depois, usa f5 e f7 para dividir os pacientes em subgrupos.
-3. Em níveis seguintes, passa a avaliar f0, f2, f4, f6 e outras características transformadas.
+1. A árvore começa, como nas outras, avaliando Glicose.
+2. Depois, usa IMC e Idade para dividir os pacientes em subgrupos.
+3. Em níveis seguintes, passa a avaliar Número de gestações, Pressão arterial, Insulina, IMC e outras características clínicas.
 4. O objetivo é chegar a decisões cada vez mais específicas.
+
+![Estrutura da árvore de decisão com profundidade 7](arvore_depth_7.png)
 
 Essa árvore é mais complexa e pode capturar padrões muito detalhados, mas também aumenta o risco de overfitting. Por isso, embora tenha boa precisão, a sua sensibilidade para detectar casos positivos foi menor do que na árvore de profundidade 5.
 

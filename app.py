@@ -73,7 +73,7 @@ blood_pressure = st.number_input("Pressão arterial", min_value=0, value=72)
 skin_thickness = st.number_input("Espessura da pele", min_value=0, value=29)
 insulin = st.number_input("Insulina", min_value=0, value=140)
 bmi = st.number_input("IMC", min_value=0.0, value=32.0, step=0.1)
-pedigree = st.number_input("Função de pedigree", min_value=0.0, value=0.47, step=0.01)
+pedigree = st.number_input("Função de pedigree da diabetes", min_value=0.0, value=0.47, step=0.01)
 age = st.number_input("Idade", min_value=0, value=33)
 
 if st.button("Fazer previsão"):

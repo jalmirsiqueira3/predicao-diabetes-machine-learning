@@ -48,11 +48,11 @@ def main():
     df = df.drop_duplicates().copy()
 
     columns_with_zero_as_missing = [
-        "Glucose",
-        "BloodPressure",
-        "SkinThickness",
-        "Insulin",
-        "BMI",
+        "Glicose",
+        "PressaoArterial",
+        "EspessuraPele",
+        "Insulina",
+        "IMC",
     ]
     for col in columns_with_zero_as_missing:
         df[col] = df[col].replace(0, np.nan)
@@ -66,8 +66,8 @@ def main():
     print("\nValores ausentes após imputação por mediana:")
     print(df.isnull().sum())
 
-    X = df.drop(columns=["Outcome"])
-    y = df["Outcome"]
+    X = df.drop(columns=["Resultado"])
+    y = df["Resultado"]
 
     categorical_cols = X.select_dtypes(include=["object", "category"]).columns.tolist()
     if categorical_cols:
@@ -110,7 +110,7 @@ def main():
 
     descriptive_summary = {
         "summary_statistics": df.describe().round(2).to_dict(),
-        "mean_by_outcome": df.groupby("Outcome").mean().round(2).to_dict(),
+        "mean_by_outcome": df.groupby("Resultado").mean().round(2).to_dict(),
     }
 
     with open(PREPROCESSED_DIR / "descriptive_summary.json", "w", encoding="utf-8") as f:

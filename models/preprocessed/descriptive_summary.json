@@ -1,6 +1,6 @@
 {
   "summary_statistics": {
-    "Pregnancies": {
+    "NumeroGestacoes": {
       "count": 768.0,
       "mean": 3.85,
       "std": 3.37,
@@ -10,7 +10,7 @@
       "75%": 6.0,
       "max": 17.0
     },
-    "Glucose": {
+    "Glicose": {
       "count": 768.0,
       "mean": 121.66,
       "std": 30.44,
@@ -20,7 +20,7 @@
       "75%": 140.25,
       "max": 199.0
     },
-    "BloodPressure": {
+    "PressaoArterial": {
       "count": 768.0,
       "mean": 72.39,
       "std": 12.1,
@@ -30,7 +30,7 @@
       "75%": 80.0,
       "max": 122.0
     },
-    "SkinThickness": {
+    "EspessuraPele": {
       "count": 768.0,
       "mean": 29.11,
       "std": 8.79,
@@ -40,7 +40,7 @@
       "75%": 32.0,
       "max": 99.0
     },
-    "Insulin": {
+    "Insulina": {
       "count": 768.0,
       "mean": 140.67,
       "std": 86.38,
@@ -50,7 +50,7 @@
       "75%": 127.25,
       "max": 846.0
     },
-    "BMI": {
+    "IMC": {
       "count": 768.0,
       "mean": 32.46,
       "std": 6.88,
@@ -60,7 +60,7 @@
       "75%": 36.6,
       "max": 67.1
     },
-    "DiabetesPedigreeFunction": {
+    "FuncaoPedigreeDiabetes": {
       "count": 768.0,
       "mean": 0.47,
       "std": 0.33,
@@ -70,7 +70,7 @@
       "75%": 0.63,
       "max": 2.42
     },
-    "Age": {
+    "Idade": {
       "count": 768.0,
       "mean": 33.24,
       "std": 11.76,
@@ -80,7 +80,7 @@
       "75%": 41.0,
       "max": 81.0
     },
-    "Outcome": {
+    "Resultado": {
       "count": 768.0,
       "mean": 0.35,
       "std": 0.48,
@@ -92,35 +92,35 @@
     }
   },
   "mean_by_outcome": {
-    "Pregnancies": {
+    "NumeroGestacoes": {
       "0": 3.3,
       "1": 4.87
     },
-    "Glucose": {
+    "Glicose": {
       "0": 110.68,
       "1": 142.13
     },
-    "BloodPressure": {
+    "PressaoArterial": {
       "0": 70.92,
       "1": 75.12
     },
-    "SkinThickness": {
+    "EspessuraPele": {
       "0": 27.73,
       "1": 31.69
     },
-    "Insulin": {
+    "Insulina": {
       "0": 127.79,
       "1": 164.7
     },
-    "BMI": {
+    "IMC": {
       "0": 30.89,
       "1": 35.38
     },
-    "DiabetesPedigreeFunction": {
+    "FuncaoPedigreeDiabetes": {
       "0": 0.43,
       "1": 0.55
     },
-    "Age": {
+    "Idade": {
       "0": 31.19,
       "1": 37.07
     }
