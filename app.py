@@ -66,15 +66,26 @@ else:
 
 st.sidebar.write("Pré-processamento: padronização com StandardScaler")
 
-st.subheader("Dados do paciente")
-pregnancies = st.number_input("Número de gestações", min_value=0, value=3)
-glucose = st.number_input("Glicose", min_value=0, value=121)
-blood_pressure = st.number_input("Pressão arterial", min_value=0, value=72)
-skin_thickness = st.number_input("Espessura da pele", min_value=0, value=29)
-insulin = st.number_input("Insulina", min_value=0, value=140)
-bmi = st.number_input("IMC", min_value=0.0, value=32.0, step=0.1)
-pedigree = st.number_input("Função de pedigree da diabetes", min_value=0.0, value=0.47, step=0.01)
-age = st.number_input("Idade", min_value=0, value=33)
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.subheader("Dados do paciente")
+
+    sub_col1, sub_col2 = st.columns(2)
+
+    with sub_col1:
+        pregnancies = st.number_input("Número de gestações", min_value=0, value=3, width=150)
+        glucose = st.number_input("Glicose", min_value=0, value=121, width=150)
+        blood_pressure = st.number_input("Pressão arterial", min_value=0, value=72, width=150)
+        skin_thickness = st.number_input("Espessura da pele", min_value=0, value=29, width=150)
+
+    with sub_col2:
+        insulin = st.number_input("Insulina", min_value=0, value=140, width=150)
+        bmi = st.number_input("IMC", min_value=0.0, value=32.0, step=0.1, width=150)
+        pedigree = st.number_input("Função de pedigree", min_value=0.0, value=0.47, step=0.01, width=150)
+        age = st.number_input("Idade", min_value=0, value=33, width=150)
+    
 
 if st.button("Fazer previsão"):
     input_df = pd.DataFrame(
@@ -91,6 +102,9 @@ if st.button("Fazer previsão"):
     else:
         probability_positive = None
 
+    with col2:
+        pass
+
     st.markdown("---")
     st.subheader("Resultado da previsão")
 
@@ -101,6 +115,3 @@ if st.button("Fazer previsão"):
 
     if probability_positive is not None:
         st.write(f"Probabilidade estimada de diabetes: {probability_positive:.2%}")
-
-    st.write("### Dados informados")
-    st.write(input_df)
