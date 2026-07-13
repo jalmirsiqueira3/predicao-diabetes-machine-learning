@@ -1,4 +1,3 @@
-from pathlib import Path
 import json
 import numpy as np
 import pandas as pd
@@ -9,10 +8,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-ROOT = Path(__file__).resolve().parents[1]
-DATA_PATH = ROOT / "dataset" / "diabetes.csv"
-OUTPUT_DIR = ROOT / "models" / "preprocessed"
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+from artifact_utils import DATA_PATH, PREPROCESSED_DIR, PREPROCESSED_PATH
 
 
 def save_correlation_plot(df, output_path):
@@ -96,7 +92,7 @@ def main():
         "feature_names": X.columns.tolist(),
         "scaler": scaler,
         "cleaned_df": df,
-    }, OUTPUT_DIR / "diabetes_preprocessed.joblib")
+    }, PREPROCESSED_PATH)
 
     report = {
         "rows_original": int(df.shape[0] + 0),
@@ -109,7 +105,7 @@ def main():
         "imputation": "median"
     }
 
-    with open(OUTPUT_DIR / "preprocess_report.json", "w", encoding="utf-8") as f:
+    with open(PREPROCESSED_DIR / "preprocess_report.json", "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
 
     descriptive_summary = {
@@ -117,20 +113,20 @@ def main():
         "mean_by_outcome": df.groupby("Outcome").mean().round(2).to_dict(),
     }
 
-    with open(OUTPUT_DIR / "descriptive_summary.json", "w", encoding="utf-8") as f:
+    with open(PREPROCESSED_DIR / "descriptive_summary.json", "w", encoding="utf-8") as f:
         json.dump(descriptive_summary, f, indent=2, ensure_ascii=False)
 
-    save_correlation_plot(df, OUTPUT_DIR / "correlation_matrix.png")
+    save_correlation_plot(df, PREPROCESSED_DIR / "correlation_matrix.png")
 
     report["descriptive_summary"] = descriptive_summary
-    with open(OUTPUT_DIR / "preprocess_report.json", "w", encoding="utf-8") as f:
+    with open(PREPROCESSED_DIR / "preprocess_report.json", "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
 
     print("\nResumo descritivo:")
     print(json.dumps(descriptive_summary, indent=2, ensure_ascii=False))
     print("\nResumo da etapa de pré-processamento:")
     print(json.dumps(report, indent=2, ensure_ascii=False))
-    print(f"\nArquivos salvos em: {OUTPUT_DIR}")
+    print(f"\nArquivos salvos em: {PREPROCESSED_DIR}")
 
 
 if __name__ == "__main__":
