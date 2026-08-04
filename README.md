@@ -31,6 +31,14 @@ Além da implementação dos modelos de Machine Learning, o projeto foi desenvol
 
 ---
 
+## 📷 Demonstração
+
+<p align="center">
+<img src="documentos/screenshot-dashboard.png" alt="Dashboard da aplicação" width="900"/>
+</p>
+
+---
+
 ## 📊 Dataset
 
 Foi utilizado o **Pima Indians Diabetes Database**, um conjunto de dados amplamente utilizado em estudos de Machine Learning para classificação. O dataset contém informações clínicas de pacientes, como número de gestações, glicose, pressão arterial, IMC, idade e outras variáveis utilizadas para prever a ocorrência de diabetes.
@@ -63,6 +71,12 @@ Os modelos foram avaliados utilizando as métricas **Accuracy, Precision, Recall
 
 A **Árvore de Decisão com profundidade 5** apresentou o melhor desempenho geral, alcançando a maior Accuracy e o maior F1-Score, além do melhor equilíbrio entre Precision e Recall.
 
+
+### Relátorio Técnico
+
+Para uma análise mais detalhada do projeto, incluindo a comparação entre os modelos, métricas completas, matrizes de confusão e justificativas para a seleção dos algoritmos, consulte o relatório técnico disponível neste repositório.
+
+➡️ [Relatório de Avaliação dos Modelos](documentos/relatorio.md)
 ---
 
 ## 🛠️ Tecnologias e Bibliotecas Utilizadas
