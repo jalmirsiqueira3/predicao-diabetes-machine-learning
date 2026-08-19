@@ -67,6 +67,7 @@ predicao-diabetes-machine-learning/
 * **`requirements.txt`** — lista das dependências necessárias para executar o projeto.
 * **`README.md`** — documentação principal do projeto.
 
+---
 
 ## 📷 Demonstração
 
