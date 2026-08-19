@@ -31,6 +31,43 @@ Além da implementação dos modelos de Machine Learning, o projeto foi desenvol
 
 ---
 
+## 📂 Estrutura do Projeto
+
+```text
+predicao-diabetes-machine-learning/
+│
+├── 📁 dataset/
+│   └── diabetes.csv
+│
+├── 📁 documentos/
+│   ├── screenshot-dashboard.png
+│   └── relatorio.md
+│
+├── 📁 models/
+│   ├── preprocessed/
+│   └── trained/
+│
+├── 📁 src/
+│   ├── 📄 preprocess_diabetes.py
+│   ├── 📄 train_models.py
+│
+├── 📄 app.py
+├── 📄 requirements.txt
+├── 📄 README.md
+└── 📄 .gitignore
+```
+
+### 📁 Principais diretórios
+
+* **`dataset/`** — contém o conjunto de dados utilizado no projeto.
+* **`documentos/`** — reúne a documentação, relatório técnico e imagens utilizadas no README.
+* **`models/`** — armazena os artefatos gerados durante o pipeline, incluindo dados pré-processados e modelos treinados.
+* **`src/`** — concentra a implementação do pipeline de Machine Learning, mantendo as responsabilidades separadas entre pré-processamento, treinamento e avaliação.
+* **`app.py`** — aplicação web desenvolvida com Streamlit para interação com os modelos e realização de predições.
+* **`requirements.txt`** — lista das dependências necessárias para executar o projeto.
+* **`README.md`** — documentação principal do projeto.
+
+
 ## 📷 Demonstração
 
 <p align="center">
